@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/stylesheet.css" type="text/css" rel="stylesheet">
+    <title>Hello Pizza - Cadastro</title>
+</head>
+<body>
+    <header">
+        <div id="logo">
+            <h1>
+                <img src="img/logo-helloPizza.png">
+            </h1>
+            <nav>
+                <ul>
+                    <li><a href="#">home</a></li>
+                    <li><a href="#">sabores</a></li>
+                    <li><a href="#">contato</a></li>
+                    <li><a href="#">login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header">
+
+    <main>
+        <header>
+            <h1>Crie sua Conta do Hello Pizza</h1>
+        </header>
+        <form method="POST" action="">
+            <fieldset>
+                <legend>login</legend>
+                <div class="container-input">
+                    <label for="email">E-mail</label>
+                    <input id="email" class="type-email" type="email" name="email" placeholder="Insira o seu e-mail" required>
+                </div>
+                <div class="container-input">
+                    <label for="password">Senha</label>
+                    <input id="password" class="type-password" type="password" name="password" placeholder="Insira a sua senha" required>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>pessoal</legend>
+                <div class="container-input">
+                    <label for="nome">Nome</label>
+                    <input id="nome" class="type-text" type="text" name="nome" placeholder="Insira o seu Nome Completo" required>
+                </div>
+                <div class="container-input">
+                    <label for="telefone">Telefone</label>
+                    <input id="telefone" class="type-text" type="text" name="telefone" placeholder="Ex: (99) 9999-9999" required>
+                </div>
+                <div class="container-radio">
+                    <label for="sexo">Sexo</label>
+                    <input class="type-radio" type="radio" name="sexo" checked><span>Masculino</span>
+                    <input class="type-radio" type="radio" name="sexo"><span>Feminino</span>
+                </div>
+                <div class="container-input">
+                    <label for="data-nasc">Data de Nasc.</label>
+                    <input id="dara-nasc" class="type-date" type="date" name="date">
+                </div>
+                <div class="container-input">
+                        <label for="file">Foto de Perfil</label>
+                        <input id="file" class="type-file" type="file" name="file" placeholder="Escolher Arquivo">
+                    </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>endereço</legend>
+                <div class="container-input">
+                    <label for="endereco">Endereço</label>
+                    <input id="endereco" class="type-text" type="text" name="endereco" placeholder="Rua / Avenida / Parque / Travessa" required>
+                </div>
+                <div class="container-center">
+                    <div id="container-number" class="container-input">
+                        <label for="number">Número</label>
+                        <input id="numero" class="type-number" type="number" name="number" min="1" max="999999" placeholder="Ex: 99999" required>
+                    </div>
+                    
+                    <div id="container-cep" class="container-input">
+                        <label for="cep">CEP</label>
+                        <input id="cep" class="type-text" type="text" name="cep" placeholder="99999-999">
+                    </div>
+                </div>
+                <div class="container-input">
+                    <label for="compl">Complemento</label>
+                    <input id="complemento" class="type-text" type="text" name="compl" placeholder="Apt / Andar / Casa">
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>anúncio</legend>
+                <div class="container-input">
+                    <label for="anuncio">Anúncio</label>
+                </div>
+
+                <div class="text-area">
+                    <textarea id="text-area" placeholder="Conte a sua historia e diga para a gente como conheceu a melhor pizzaria do brasil"></textarea>
+                </div>
+
+                <div class="container-checkbox">
+                    <input class="type-checkbox" type="checkbox" name="checkbox" checked>
+                    <label for="prop-email">Desejo refeber ofertas por e-mail</label>
+                </div>
+            </fieldset>
+            <div class="input-button">
+                <input id="submit" class="type-submit" type="submit" name="submit" value="Finalizar Cadastro">
+            </div>  
+        </form>
+    </main>
+
+    <footer>
+        <a href="#">
+            <img src="img/logo-helloPizza.png">
+        </a>
+        <p>Todos os direitos reservados &copy; 2019</p>
+    </footer>
+</body>
+</html>

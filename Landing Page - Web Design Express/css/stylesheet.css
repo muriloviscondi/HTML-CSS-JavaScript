@@ -1,0 +1,437 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    font-family: Open Sans, sans-serif;
+}
+
+.clear {
+    clear: both;
+}
+
+#main-nav {
+    height: 140px;
+    padding: 10px;
+    display: block;
+}
+
+#logo {
+    width: 50%;
+    float: left;
+}
+
+#logo img {
+    width: 105px;
+    margin-left: 20px;
+}
+
+nav {
+    width: 50%;
+    float: right;
+}
+
+header nav ul {
+    display: inline-block;
+    margin-left: 7%;
+}
+
+header nav ul li {
+    display: inline-block;
+    margin-left: 100px;
+    color: #000;
+    font-weight: lighter;
+    position: relative;
+    top: 50px;
+}
+
+.destaque {
+    font-weight: 600;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #000;
+    text-transform: uppercase;
+}
+
+.main-section{
+        padding: 0 50px 0 50px;
+}
+
+.main-section header{
+    text-align: center;
+}
+
+#banner {
+    height: auto;
+    padding-bottom: 30px;
+    background-image: url('../img/Banner.jpg');
+    background-size: cover;
+}
+
+#Web_Design_Express {
+    text-align: center;
+    font-size: 23px;
+    color: #84fbdb;
+}
+
+#Web_Design_Express h1 {
+    padding-top: 30px;
+}
+
+#banner p {
+    color: #FFF;
+    text-align: justify;
+}
+
+.container-button {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.container-button button {
+    width: 200px;
+    height: 60px;
+    color: #FFF;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #009292;
+    border: none;
+    cursor: pointer;
+}
+
+.main-section h2, .titulo {
+    margin-top: 50px;
+    font-weight: bold;
+    color: #01564d;
+    font-size: 20px;
+}
+
+.container-texto {
+    width: calc(100% / 3);
+    float: left;
+}
+
+.container-experiencia {
+    margin-top: 60px;
+    margin-bottom: 50px;
+}
+
+.container-image {
+    text-align: center;
+}
+
+.container-experiencia p {
+    padding: 20px 40px 0 40px;
+    padding-right: 40px;
+    text-align: justify;
+    font-size: 16px;
+}
+
+#equipe-section {
+    width: 100%;
+    height: auto;
+    display: block;
+    background-color: rgb(214, 214, 214);
+}
+
+.container-equipe {
+    width: 50%;
+    padding-right: 20px;
+    float: left;
+}
+
+
+
+.equipe-titulo, .historia-titulo {
+    padding-top: 30px;
+    padding-bottom: 50px;
+}
+
+.equipe {
+    padding-right: 20px;
+    display: inline-block;
+}
+
+.perfil-equipe {
+    width: 80px;
+    margin-bottom: 40px;
+    float: left;
+}
+
+.descricao-equipe {
+    width: calc(100% - 90px);
+    float: right;
+}
+
+.descricao-equipe h3 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+
+.descricao-equipe p {
+    margin-top: 0;
+    font-size: 13px;
+    text-align: justify;
+}
+
+.titulo {
+    margin-left: 20px;
+    position: relative;
+    bottom: 5px
+}
+
+.container-historia {
+    display: inline-block;
+    width: 50%;
+}
+
+.historia-titulo {
+    padding-bottom: 0;
+}
+
+.container-historia p {
+    font-size: 15px;
+    text-align: justify;
+}
+
+#cadastro {
+    height: 104px;
+    text-align: center;
+    display: block;
+    padding: 25px;
+    color: #FFF;
+    background-color: #00c4c4;
+}
+
+.input-container {
+    margin: 0;
+    vertical-align: middle;
+}
+
+.input-container span {
+    margin-left: 10px;
+    font-size: 23px;
+    font-weight: 500;
+    position: relative;
+    top: -17.5px;
+}
+
+.input-container input[type="email"] {
+    width: 486px;
+    height: 25px;
+    margin-left: 20px;
+    margin-right: 0;
+    padding-right: 0;
+    font-size: 16px;
+    background-color: rgb(214, 214, 214);
+    position: relative;
+    top: -22px;
+}
+
+.input-container input[type="submit"] {
+    width: 120px;
+    height: 25px;
+    color: #FFF;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #009292;
+    border: none;
+    position: relative;
+    top: -22px;
+    right: 5px;
+    cursor: pointer;
+}
+
+#lista-produtos {
+    width: 100%;
+    margin: 50px auto;
+    display: flex;
+}
+
+.produtos {
+    width: calc(100% / 3);
+    text-align: center;
+    margin: 0 auto;
+}
+
+h3 {
+    margin: 10px auto 5px auto;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.produtos p {
+    margin-top: 0;
+    font-size: 14px;
+    font-weight: lighter;
+}
+
+#contato {
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    color: #FFF;
+    background-color: #00c4c4;
+}
+
+.container-contato, .links, .redes-sociais {
+    width: calc(100% / 3);
+}
+
+.localizacao {
+    margin-top: 15px;
+}
+
+#contato h3 {
+    padding-bottom: 10px;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+#contato span {
+    font-size: 16px;
+    font-weight: lighter;
+}
+
+.contato-endereco {
+    padding-bottom: 10px;
+}
+
+.links {
+    margin-left: 15%;
+}
+
+.links p {
+    margin: 7px 0;
+}
+.links a {
+    color: #FFF;
+    text-decoration: none;
+}
+
+.redes-sociais h3 {
+    text-align: center;
+}
+
+.redes-sociais img {
+    margin-left: 2%;
+    position: relative;
+    left: 12%;
+}
+
+footer {
+    height: 50px;
+    background-color: #009292;
+}
+
+footer p {
+    margin: 0;
+    color: #FFF;
+    text-align: center;
+    font-size: 14px;
+    font-style: italic;
+    font-weight: 700;
+    line-height: 50px;
+}
+
+@media only screen and (max-width: 700px) {
+    #main-nav {
+        height: 150px;
+    }
+    #logo, nav {
+        width: 100%;
+        float: none;
+        margin: 0;
+        text-align: center;
+        display: block;
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+        position: relative;
+        top: -40px;
+    }
+
+    ul li a, .destaque {
+        margin-left: 0;
+    }
+
+    .container-texto, .container-equipe, .container-historia {
+        width: 100%;
+        margin: 0 auto;
+        padding: 0;
+    }
+
+    #lista-produtos {
+        width: 90%;
+        display: block;
+        margin: 20px 0;
+        margin-left: -30px;;
+    }
+    
+    #lista-produtos h3,  #lista-produtos p {
+        width: 270px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    #lista-produtos p {
+        margin-bottom: 20px;
+    }
+
+    #contato {
+        width: 100%;
+        display: inline-block;
+        padding: 0;
+        margin: 20px auto 0 auto;
+    }
+
+    .container-contato, .links, .redes-sociais {
+        width: 100%;
+        margin: 10px auto;
+        text-align: center;
+        display: block;
+    }
+
+    .contato-endereco {
+        width: calc(100% /2);
+        display: inline-block;
+        float: left;
+    }
+
+    .localizacao {
+        position: relative;
+        top: -15px;
+    }
+
+    .telefone {
+        position: relative;
+        top: -8px;
+    }
+
+    .links p {
+        display: inline-block;
+        padding-right: 20px;
+        position: relative;
+        top: -15px
+    }
+
+    .redes-sociais img {
+        position: relative;
+        left: -10px;
+    }
+
+    #cadastro {
+        width: 100%;
+        height: 180px;
+    }
+
+    #cadastro input[type="email"] {
+        width: 90%;
+        margin: 30px auto 20px auto;
+    }

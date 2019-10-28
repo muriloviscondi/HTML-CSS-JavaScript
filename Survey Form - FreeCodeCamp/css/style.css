@@ -1,0 +1,178 @@
+* {
+	margin: 0;
+	padding: 0;
+	
+}
+
+body {
+	margin-left: 250px;
+	margin-right: 250px;
+	background: rgb(216,216,191);
+	font-family: 'Open Sans', 'Tahoma';
+}
+
+h1 {
+	text-align: center;
+	margin: 20px auto;
+}
+
+#description {
+	margin: 10px 40px;
+	padding: 20px;
+	border-style: solid;
+	border-color: rgb(216,216,191);
+	border-radius: 20px;
+	background-color: rgb(234,234,174);
+}
+
+p {
+	text-align: center;
+	font-weight: bold;
+	margin: 20px;
+	font-size: 20px;
+}
+
+#survey-form .label {
+	margin: 5px 40px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 150px;
+	border-style: solid;
+	border-color: rgb(216,216,191);
+	border-radius: 20px;
+	background-color: rgb(234,234,174);
+}
+
+#name-label {
+	display: inline-block;
+	padding: 20px;
+	vertical-align: middle;
+	text-align: right;
+	width: 55px;
+}
+
+#email-label {
+	display: inline-block;
+	padding: 20px;
+	vertical-align: middle;
+	text-align: right;
+	width: 55px;
+}
+
+#number-label {
+	display: inline-block;
+	padding: 20px;
+	vertical-align: middle;
+	text-align: right;
+	width: 55px;
+
+}
+
+.input-field {
+  height: 20px;
+  width: 280px;
+  padding: 5px;
+  margin: 10px;
+  border: 1px solid #c0c0c0;
+  border-radius: 2px;
+}
+
+.dropdown {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	text-align: center;
+	margin: 10px 40px;
+	border-style: solid;
+	border-color: rgb(216,216,191);
+	background-color: rgb(234,234,174);
+	border-radius: 20px;
+}
+
+#dropdown {
+	border-radius: 0px;
+	background: white;
+	padding: 8px;
+}
+
+.list-radio  {
+	margin: 10px 40px;
+	padding: 10px;
+	border-style: solid;
+	border-color: rgb(216,216,191);
+	border-radius: 20px;
+	background-color: rgb(234,234,174);
+	text-align: center;
+	vertical-align: middle;
+	
+}
+
+
+.radio {
+	text-align: left;
+	margin-left: 40%;
+	margin-top: 5px;
+	display: block;
+}
+
+.userRadio,
+input[type="radio"] {
+  float: left;
+  margin-top: 5px;
+ }
+
+.list-checkbox  {
+	margin: 10px 40px;
+	padding: 10px;
+	border-style: solid;
+	border-color: rgb(216,216,191);
+	border-radius: 20px;
+	background-color: rgb(234,234,174);
+	text-align: center;
+	vertical-align: middle;
+}
+
+.checkbox {
+	text-align: left;
+	margin-left: 40%;
+	margin-top: 5px;
+	display: block;
+}
+
+.userCheckbox,
+input[type="checkbox"] {
+  float: left;
+  margin-top: 5px;
+} 
+
+.labels  {
+	margin: 10px 40px;
+	padding: 20px;
+	border-style: solid;
+	border-color: rgb(216,216,191);
+	border-radius: 20px;
+	background-color: rgb(234,234,174);
+	text-align: center;
+	display: grid;
+	vertical-align: middle;
+}
+
+#comments {
+	
+}
+
+#textarea {
+	width: 70%px;
+	height: 100px;
+}
+
+#submit {
+	background-color: #59ace0;
+	border-radius: 4px;
+	color: white;
+	font-size: 1em;
+	height: 40px;
+	width: 96px;
+	margin: 10px;
+	border: 0px solid;
+	margin-left: 45%;
+}

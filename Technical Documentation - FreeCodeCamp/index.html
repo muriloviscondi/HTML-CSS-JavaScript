@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>FCC: Technical Documentation Page</title>
+		<meta name="viewport" content="with=device.width, initial-scale=1.0">
+		<meta charset="utf-8">
+		<link href="css/style.css" type="text/css" rel="stylesheet">
+	</head>
+	<body>
+		<nav id="navbar">
+			<header><a class="nav-link" href="#main-doc"><img src="https://www.sccpre.cat/png/big/44/447884_java-logo-png.png" alt="Java_Logo.png"></></header>
+			<div class="center">
+				<ol>
+					<li><a class="nav-link" href="#Google_Style_Guides">Google Style Guides</li>
+					<li><a class="nav-link" href="#Introduction">Introduction</a></li>
+					<li><a class="nav-link" href="#Terminology_notes">Terminology notes</a></li>
+					<li><a class="nav-link" href="#Guide_notes">Guide notes</a></li>
+					<li><a class="nav-link" href="#Source_file_basics">Source file basics</a></li>
+					<li><a class="nav-link" href="#File_name">File name</a></li>
+					<li><a class="nav-link" href="#File_encoding_UTF-8">File encoding UTF-8</a></li>
+					<li><a class="nav-link" href="#Special_characters">Special characters</a></li>
+					<li><a class="nav-link" href="#Source_file_structure">Source file structure</a></li>
+					<li><a class="nav-link" href="#License_or_copyright_information_if_present">License or copyright information if present</a></li>
+					<li><a class="nav-link" href="#Package_statement">Package statement</a></li>
+					<li><a class="nav-link" href="#Import_statements">Import statements</a></li>
+					<li><a class="nav-link" href="#Class_declaration">Class declaration</a></li>
+					<li><a class="nav-link" href="#Formatting">Formatting</a></li>
+					<li><a class="nav-link" href="#Braces">Braces</a></li>
+					<li><a class="nav-link" href="#Block_indentation_+2_spaces">Block indentation +2 spaces</a></li>
+					<li><a class="nav-link" href="#One_statement_per_line">One statement per line</a></li>
+					<li><a class="nav-link" href="#Column_limit_100">Column limit 100</a></li>
+					<li><a class="nav-link" href="#Line-wrapping">Line-wrapping</a></li>
+					<li><a class="nav-link" href="#Whitespace">Whitespace</a></li>
+					<li><a class="nav-link" href="#Grouping_parentheses_recommended">Grouping parentheses recommended</a></li>
+					<li><a class="nav-link" href="#Specific_constructs">Specific constructs</a></li>
+					<li><a class="nav-link" href="#Naming">Naming</a></li>
+					<li><a class="nav-link" href="#Rules_common_to_all_identifiers">Rules common to all identifiers</a></li>
+					<li><a class="nav-link" href="#Rules_by_identifier_type">Rules by identifier type</a></li>
+					<li><a class="nav-link" href="#Camel_case_defined">Camel case defined</a></li>
+					<li><a class="nav-link" href="#Programming_practices">Programming Practices</a></li>
+					<li><a class="nav-link" href="#@Override_always_used">@Override always used</a></li>
+					<li><a class="nav-link" href="#Caught_exceptions_not_ignored">Caught exceptions not ignored</a></li>
+					<li><a class="nav-link" href="#Static_members_qualified_using_class">Static members qualified using class</a></li>
+					<li><a class="nav-link" href="#Finalizers_not_used">Finalizers not used</a></li>
+					<li><a class="nav-link" href="#Javadoc">Javadoc</a></li>
+					<li><a class="nav-link" href="#Formatting_javadoc">Formatting Javadoc</a></li>
+					<li><a class="nav-link" href="#The_summary_fragment">The summary fragment</a></li>
+					<li><a class="nav-link" href="#Where_javadoc_is_used">Where Javadoc is used</a></li>
+					<li><a class="nav-link" href="#Reference">Reference</a></li>
+				</ol>
+			</div>
+		</nav>
+
+		<h1>Google Java Style Guide</h1>
+
+		<main id="main-doc">
+			<section class="main-section" id="Google_Style_Guides">
+				<header>Google Style Guides</header>
+				<article>
+					<p>Every major open-source project has its own style guide: a set of conventions (sometimes arbitrary) about how to write code for that project. It is much easier to understand a large codebase when all the code in it is in a consistent style.</p>
+
+					<p>“Style” covers a lot of ground, from “use camelCase for variable names” to “never use global variables” to “never use exceptions.” This project (google/styleguide) links to the style guidelines we use for Google code. If you are modifying a project that originated at Google, you may be pointed to this page to see the style guides that apply to that project.</p>
+				</article>
+			</section>
+
+			<section class="main-section" id="Introduction"> 
+				<header>Introduction</header>
+				<article>
+					<p>This document serves as the <b>complete</b> definition of Google's coding standards for source code in the Java™ Programming Language. A Java source file is described as being <i>in Google Style</i> if and only if it adheres to the rules herein.</p>
+					<p>Like other programming style guides, the issues covered span not only aesthetic issues of formatting, but other types of conventions or coding standards as well. However, this document focuses primarily on the <b>hard-and-fast</b> rules that we follow universally, and avoids giving advice that isn't clearly enforceable (whether by human or tool).</p>
+				</article>
+			</section>
+
+			<section class="main-section" id="Terminology_notes"> 
+				<header class="header-style">Terminology notes</header>
+				<article>
+					<p>In this document, unless otherwise clarified:</p>
+					<ol>
+						<li>The term class is used inclusively to mean an "ordinary" class, enum class, interface or annotation type (<span class="code-text">@interface</span>).</li>
+						<li>The term member (of a class) is used inclusively to mean a nested class, field, method, or constructor; that is, all top-level contents of a class except initializers and comments.</li>
+						<li>The term comment always refers to implementation comments. We do not use the phrase "documentation comments", instead using the common term "Javadoc."</li>
+					</ol>
+					<p>Other "terminology notes" will appear occasionally throughout the document.</p>
+				</article>
+			</section>
+
+			<section class="main-section" id="Guide_notes"> 
+				<header class="header-style">Guide notes</header>
+				<article>
+					<p>Example code in this document is <b>non-normative</b>. That is, while the examples are in Google Style, they may not illustrate the only stylish way to represent the code. Optional formatting choices made in examples should not be enforced as rules.</p>
+				</article>
+			</section>
+
+			<section class="main-section" id="JavaScript_and_Java">
+				<header>JavaScript and Java</header>
+					<article>
+						<p>JavaScript and Java are similar in some ways but fundamentally different in some others. The JavaScript language resembles Java but does not have Java's static typing and strong type checking. JavaScript follows most Java expression syntax, naming conventions and basic control-flow constructs which was the reason why it was renamed from LiveScript to JavaScript.</p>
+						<p>In contrast to Java's compile-time system of classes built by declarations, JavaScript supports a runtime system based on a small number of data types representing numeric, Boolean, and string values. JavaScript has a prototype-based object model instead of the more common class-based object model. The prototype-based model provides dynamic inheritance; that is, what is inherited can vary for individual objects. JavaScript also supports functions without any special declarative requirements. Functions can be properties of objects, executing as loosely typed methods.</p>
+						<p>JavaScript is a very free-form language compared to Java. You do not have to declare all variables, classes, and methods. You do not have to be concerned with whether methods are public, private, or protected, and you do not have to implement interfaces. Variables, parameters, and function return types are not explicitly typed.</p>
+					</article>
+			</section>
+			<section class="main-section" id="Source_file_basics">
+				<header>Source file basics</header>
+				<article>
+					<section class="main-section" id="File_name"> 
+						<header class="header-style">File name</header>
+						<article>
+							<p>The source file name consists of the case-sensitive name of the top-level class it contains, plus the <span class="code-text">.java</span> extension.</p>
+						</article>
+					</section>
+				</article>
+			</section>
+
+			<section class="main-section" id="File_encoding_UTF-8">
+				<header class="header-style">File encoding UTF-8</header>
+				<article>
+					<p>Source files are encoded in <b>UTF-8</b>.</p>
+				</article>
+			</section>
+
+			<section class="main-section" id="Special_characters">
+				<header class="header-style">Special characters</header>
+				<article>
+					<h3>Whitespace characters</h3>
+					<p>Aside from the line terminator sequence, the <b>ASCII horizontal space character (0x20)</b> is the only whitespace character that appears anywhere in a source file. This implies that:</p>
+					<ol>
+						<li>All other whitespace characters in string and character literals are escaped.</li>
+						<li>Tab characters are <b>not</b> used for indentation.</li>
+					</ol>
+					<h3>Special escape sequences</h3>
+					<p>For any character that has a <a href="https://bit.ly/1Ggnrbh">special escape sequence</a> (<span class="code-text">\b, \t, \n, \f, \r, \", \'</span> and <span class="code-text">\\</span>), that sequence is used rather than the corresponding octal or Unicode escape.</p>
+
+					<h3>Non-ASCII characters</h3>
+					<p>For the remaining non-ASCII characters, either the actual Unicode character or the equivalent Unicode escape is used. The choice depends only on which makes the code <b>easier to read and understand</b>, although Unicode escapes outside string literals and comments are strongly discouraged.</p>
+
+					<div class="tip">
+						<p><b>Tip:</b> In the Unicode escape case, and occasionally even when actual Unicode characters are used, an explanatory comment can be very helpful.</p>
+					</div>
+
+					<p>Examples:</p>
+					<div class="div-code"><code>
+						<p>String unitAbbrev = "μs";	<span class="comment">Best: perfectly clear even without a comment.</span></p>
+						<p>String unitAbbrev = "\u03bcs"; // "μs"	<span class="comment">Allowed, but there's no reason to do this.</span></p>
+						<p>String unitAbbrev = "\u03bcs"; // Greek letter mu, "s"	<span class="comment">Allowed, but awkward and prone to mistakes.</span></p>
+						<p>String unitAbbrev = "\u03bcs";	<span class="comment">Poor: the reader has no idea what this is.</span></p>
+						<p>return '\ufeff' + content; // byte order mark	<span class="comment">Good: use escapes for non-printable characters, and comment if necessary.</span></p>
+					</code></div>
+
+					<div class="tip">
+						<p><b>Tip:</b> Never make your code less readable simply out of fear that some programs might not handle non-ASCII characters properly. If that should happen, those programs are broken and they must be fixed.</p>
+					</div>
+				</article>
+			</section>
+
+			<section class="main-section" id="Source_file_structure">
+				<header>Source file structure</header>
+				<article>
+					<h2>A source file consists of, <b>in order</b>:</h2>
+					<ol>
+						<li>License or copyright information if present</li>
+						<li>Package statement</li>
+						<li>Import statements</li>
+						<li>Exactly one top-level class</li>
+					</ol>
+					<p><b>Exactly one blank line</b> separates each section that is present.</p>
+				</article>
+			</section>
+
+			<section class="main-section" id="License_or_copyright_information_if_present">
+				<header class="header-style">License or copyright information if present</header>
+				<article>
+					<p>If license or copyright information belongs in a file, it belongs here.</p>
+				</article>
+			</section>
+
+			<section class="main-section" id="Package_statement">
+				<header class="header-style">Package statement</header>
+				<article>
+					<p>The package statement is <b>not line-wrapped</b>. The column limit does not apply to package statements.</p>
+				</article>
+			</section>
+
+			<section class="main-section" id="Import_statements">
+				<header class="header-style">Import statements</header>
+				<article>
+					<h3>No wildcard imports</h3>
+					<p>Wildcard imports, static or otherwise, <b>are not used</b>.</p>
+
+					<h3>No Line-wrapping</h3>
+					<p>Import statements are <b>not line-wrapped</b>. The column limit does not apply to import statements.</p>
+
+					<h3>Ordering and spacing</h3>
+					<p>Imports are ordered as follows:</p>
+					<ol>
+						<li>All static imports in a single block.</li>
+						<li>All non-static imports in a single block.</li>
+					</ol>
+					<p>If there are both static and non-static imports, a single blank line separates the two blocks. There are no other blank lines between import statements.</p>
+
+					<p>Within each block the imported names appear in ASCII sort order. (<b>Note:</b> this is not the same as the import statements being in ASCII sort order, since '.' sorts before ';'.)</p>
+
+					<h3>No static import for classes</h3>
+					<p>Static import is not used for static nested classes. They are imported with normal imports.</p>
+				</article>
+			</section>
+
+			<section class="main-section" id="Class_declaration">	
+				<header class="header-style">Class declaration</header>
+				<article>
+					<h3>Exactly one top-level class declaration</h3>
+					<p>Each top-level class resides in a source file of its own.</p>
+
+					<h3>Ordering of class contents</h3>
+					<p>The order you choose for the members and initializers of your class can have a great effect on learnability. However, there's no single correct recipe for how to do it; different classes may order their contents in different ways.</p>
+
+					<p>What is important is that each class uses <b>some logical order</b>>, which its maintainer could explain if asked. For example, new methods are not just habitually added to the end of the class, as that would yield "chronological by date added" ordering, which is not a logical ordering.</p>
+
+					<h4>Overloads: never split</h4>
+					<p>When a class has multiple constructors, or multiple methods with the same name, these appear sequentially, with no other code in between (not even private members).</p>
+				</article>
+			</section>
+
+			<section class="main-section" id="Formatting">
+				<header>Formatting</header>
+				<article>
+					<p><b>Terminology Note:</b> block-like construct refers to the body of a class, method or constructor. Note that, by Section 4.8.3.1 on array initializers, any array initializer may optionally be treated as if it were a block-like construct.</p>
+				</article>
+			</section>
+
+			<section class="main-section" id="Braces">
+				<header class="header-style">Braces</header>
+				<article>
+					<h3>Braces are used where optional</h3>
+					<p>Braces are used with <span class="code-text">if, else, for, do </span>and <span class="code-text">while</span> statements, even when the body is empty or contains only a single statement.</p>
+
+					<h3>Nonempty blocks: K & R style</h3>
+					<p>Braces follow the Kernighan and Ritchie style ("<a href="https://bit.ly/1SS1xlK">Egyptian brackets</a>") for <i>nonempty</i> blocks and block-like constructs:</p>
+					<ol>
+						<li>No line break before the opening brace.</li>
+						<li>Line break after the opening brace.</li>
+						<li>Line break before the closing brace.</li>
+						<li>Line break after the closing brace, only if that brace terminates a statement or terminates the body of a method, constructor, or named class. For example, there is no line break after the brace if it is followed by <span class="code-text">else</span> or a comma.</li>
+					</ol>
+					<p>Examples:</p>
+					<div class="div-code"><code>
+						<span>
+							return () -> {<br>
+							<span class="space">while (condition()) {</span><br>
+							<span class="space2">method();</span><br>
+							<span class="space">}</span><br>
+							};<br><br>
+
+							return new MyClass() {<br>
+							<span class="space">@Override public void method() {</span><br>
+							<span class="space2">if (condition()) {</span><br>
+							<span class="space3">try {</span><br>
+							<span class="space4">something();</span><br>
+							<span class="space3">} catch (ProblemException e) {</span><br>
+							<span class="space4">recover();</span><br>
+							<span class="space3">}</span><br>
+							<span class="space2">} else if (otherCondition()) {</span><br>
+							<span class="space3">somethingElse();</span><br>
+							<span class="space2">} else {</span><br>
+							<span class="space3">lastThing();</span><br>
+							<span class="space2">}</span><br>
+							<span class="space">}</span><br>
+							};
+						</span>
+					</code></div>
+					<h3>Empty blocks: may be concise</h3>
+					<p>An empty block or block-like construct may be in K & R style (as described in Section 4.1.2). Alternatively, it may be closed immediately after it is opened, with no characters or line break in between (<span class="code-text">{}</span>), <b>unless</b> it is part of a multi-block statement (one that directly contains multiple blocks: <span class="code-text">if/else</span> or <span class="code-text">try/catch/finally</span>).</p>
+
+					<p>Examples:</p>
+					<div class="div-code-acceptable">
+						<span>
+							// This is acceptable<br>
+							void doNothing() {}<br>
+
+							// This is equally acceptable<br>
+							void doNothingElse() {<br>
+							}
+						</span>
+					</div>
+					<div class="div-code-not-acceptable">
+						<span>
+							// This is not acceptable: No concise empty blocks in a multi-block statement<br>
+							try {<br>
+							<span class="space">doSomething();<br></span>
+							} catch (Exception e) {}<br>
+						</span>
+					</div>
+				</article>
+			</section>
+
+			<section class="main-section" id="Block_indentation_+2_spaces">
+				<header class="header-style">Block indentation +2 spaces</header>
+				<article>
+					<p>Each time a new block or block-like construct is opened, the indent increases by two spaces. When the block ends, the indent returns to the previous indent level. The indent level applies to both code and comments throughout the block.</p>
+				</article>
+			</section>
+
+			<section class="main-section" id="One_statement_per_line">
+				<header class="header-style">One statement per line</header>
+				<article>
+					<p>Each statement is followed by a line break.</p>
+					</article>
+				</section>
+
+			<section class="main-section" id="Column_limit_100">
+				<header class="header-style">Column limit 100,</header>
+				<article>
+					<p>Java code has a column limit of 100 characters. A "character" means any Unicode code point. Except as noted below, any line that would exceed this limit must be line-wrapped.</p>
+
+					<p clas="tip">Each Unicode code point counts as one character, even if its display width is greater or less. For example, if using fullwidth characters, you may choose to wrap the line earlier than where this rule strictly requires.</p>
+
+					<p>Exceptions:</p>
+					<ol>
+						<li>Lines where obeying the column limit is not possible (for example, a long URL in Javadoc, or a long JSNI method reference).</li>
+						<li><span class="code-text">package</span> and <span class="code-text">import</span> statements.</li>
+						<li>Command lines in a comment that may be cut-and-pasted into a shell.</li>
+					</ol>
+				</article>
+			</section>
+
+			<section class="main-section" id="Line-wrapping">
+				<header class="header-style">Line-wrapping</header>
+				<article>
+					<p><b>Terminology Note:</b> When code that might otherwise legally occupy a single line is divided into multiple lines, this activity is called Line-wrapping.</p>
+
+					<p>There is no comprehensive, deterministic formula showing <i>exactly</i> how to line-wrap in every situation. Very often there are several valid ways to line-wrap the same piece of code.</p>
+
+					<div class="note">
+						<p><b>Note:</b> While the typical reason for Line-wrapping is to avoid overflowing the column limit, even code that would in fact fit within the column limit may be line-wrapped at the author's discretion.</p>
+					</div>
+
+					<div class="tip">
+						<p><b>Tip:</b> Extracting a method or local variable may solve the problem without the need to line-wrap.</p>
+					</div>
+
+					<h3>Where to break</h3>
+					<p>The prime directive of Line-wrapping is: prefer to break at a <b>higher syntactic level</b>. Also:</p>
+					<div class="list-align">
+						<ol>
+							<li>When a line is broken at a <i>non-assignment</i> operator the break comes <i>before</i> the symbol. (Note that this is not the same practice used in Google style for other languages, such as C++ and JavaScript.)
+								<ol class="list-align-order">
+									<li>This also applies to the following "operator-like" symbols:
+										<ol class="list-align-order">
+											<li>the dot separator (<span class="code-text">.</span>)</li>
+											<li>the two colons of a method reference (<span class="code-text">::</span>)
+											an ampersand in a type bound (<span class="code-text">&lt;T extends Foo & Bar&gt;</span>)</li>
+											<li>a pipe in a catch block (<span class="code-text">catch (FooException | BarException e)</span>).</li>
+										</ol>
+									</li>
+								</ol>
+								<li>When a line is broken at an assignment operator the break typically comes after the symbol, but either way is acceptable.
+									<ol class="list-align-order">
+										<li>This also applies to the "assignment-operator-like" colon in an enhanced for ("foreach") statement.</li>
+									</ol>
+								</li>
+							</li>
+							<li>A method or constructor name stays attached to the open parenthesis (() that follows it.</li>
+							<li>A comma (,) stays attached to the token that precedes it.</li>
+							<li>A line is never broken adjacent to the arrow in a lambda, except that a break may come immediately after the arrow if the body of the lambda consists of a single unbraced expression.</li>
+						</ol>
+					</div>
+					<p>Examples:</p>
+					<div class="div-code"><code>
+						<span>
+						MyLambda&lt;String, Long, Object&gt; lambda =<br>
+					    <span class="space">(String label, Long value, Object obj) -> {</span><br>
+					    <span class="space2">...</span><br>
+					    <span class="space">};</span><br><br>
+
+						Predicate&lt;String&gt; predicate = str -><br>
+					    <span class="space">longExpressionInvolving(str);</span><br>
+						</span>
+					</code></div>
+					
+					<div class="note">
+						<p><b>Note:</b> The primary goal for line wrapping is to have clear code, not necessarily code that fits in the smallest number of lines.</p>
+					</div>
+					<h3>Indent continuation lines at least +4 spaces</h3>
+					<p>When Line-wrapping, each line after the first (each continuation line) is indented at least +4 from the original line.</p>
+
+					<p>When there are multiple continuation lines, indentation may be varied beyond +4 as desired. In general, two continuation lines use the same indentation level if and only if they begin with syntactically parallel elements.</p>
+				</article>
+			</section>
+
+			 <section class="main-section" id="Whitespace">
+				<header class="header-style">Whitespace</header>
+				<article>
+					<h3>Vertical Whitespace</h3>
+					<p>A single blank line always appears:</p>
+					<div class="list-align">
+						<ol>
+							<li>Between consecutive members or initializers of a class: fields, constructors, methods, nested classes, static initializers, and instance initializers.
+								<ol class="list-align-order">
+									<li><b>Exception:</b> A blank line between two consecutive fields (having no other code between them) is optional. Such blank lines are used as needed to create <i>logical groupings</i> of fields.</li>
+									<li><b>Exception:</b> Blank lines between enum constants.</li>
+								</ol>
+							</li>
+							<li>As required by other sections of this document (such as Section 3, Source file structure, and Section 3.3, Import statements).</li>
+						</ol>
+					</div>
+					<p>A single blank line may also appear anywhere it improves readability, for example between statements to organize the code into logical subsections. A blank line before the first member or initializer, or after the last member or initializer of the class, is neither encouraged nor discouraged.</p>
+
+					<p><i>Multiple consecutive blank lines are permitted, but never required (or encouraged).</i></p>
+
+					<h3>Horizontal whitespace</h3>
+					<p>Beyond where required by the language or other style rules, and apart from literals, comments and Javadoc, a single ASCII space also appears in the following places only.</p>
+
+					<div class="list-align">
+						<ol>
+							<li>Separating any reserved word, such as <span class="code-text">if, for</span> or <span class="code-text">catch</span>, from an open parenthesis (() that follows it on that line</li>
+							<li>Separating any reserved word, such as <span class="code-text">else</span> or <span class="code-text">catch</span>, from a closing curly brace (}) that precedes it on that line</li>
+							<li>Before any open curly brace (<span class="code-text">{</span>), with two exceptions:
+								<ol class="list-align-order">
+									<li><span class="code-text">@SomeAnnotation({a, b}</span>) (no space is used)</li>
+									<li><span class="code-text">String[][] x = {{"foo"}};</span> (no space is required between <span class="code-text">{{</span>, by item 8 below)</li>
+								</ol>
+							</li>
+							<li>On both sides of any binary or ternary operator. This also applies to the following "operator-like" symbols:
+								<ol class="list-align-order">
+									<li>the ampersand in a conjunctive type bound: <span class="code-text">&lt;T extends Foo & Bar&gt;</span></li>
+									<li>the pipe for a catch block that handles multiple exceptions: <span class="code-text">catch (FooException | BarException e)</span></li>
+									<li>the colon (<span class="code-text">:</span>) in an enhanced <span class="code-text">for</span> ("foreach") statement</li>
+									<li>the arrow in a lambda expression: <span class="code-text">(String str) -> str.length()</span>
+									but not</li>
+									<li>the two colons (<span class="code-text">::</span>) of a method reference, which is written like <span class="code-text">Object::toString</span></li>
+									<li>the dot separator (<span class="code-text">.</span>), which is written like <span class="code-text">object.toString()</span></li>
+								</ol>
+							</li>
+							<li>After ,<span class="code-text">:</span>; or the closing parenthesis ()) of a cast</li>
+							<li>On both sides of the double slash (<span class="code-text">//</span>) that begins an end-of-line comment. Here, multiple spaces are allowed, but not required.</li>
+							<li>Between the type and variable of a declaration: <span class="code-text">List&lt;String&gt; list</span></li>
+							<li><i>Optional</i> just inside both braces of an array initializer
+								<ol class="list-align-order">
+									<li><span class="code-text">new int[] {5, 6}</span> and <span class="code-text">new int[] { 5, 6 }</span> are both valid</li>
+								</ol>
+							</li>
+							<li>Between a type annotation and <span class="code-text">[]</span> or <span class="code-text">....</span></li>
+						</ol>
+					</div>
+					<p>This rule is never interpreted as requiring or forbidding additional space at the start or end of a line; it addresses only <i>interior</i> space.</p>
+
+					<h3>Horizontal alignment: never required</h3>
+
+					<p><b>Terminology Note:</b> Horizontal alignment is the practice of adding a variable number of additional spaces in your code with the goal of making certain tokens appear directly below certain other tokens on previous lines.</p>
+
+					<p>This practice is permitted, but is <b>never required</b> by Google Style. It is not even required to maintain horizontal alignment in places where it was already used.</p>
+
+					<p>Here is an example without alignment, then using alignment:</p>
+
+					<div class="div-code"><code>
+						<span>
+						private int x; // this is fine<br>
+						private Color color; // this too<br>
+						<br>
+						private int   x;      // permitted, but future edits<br>
+						private Color color;  // may leave it unaligned<br>
+						</span>
+					</code></div>
+
+					<div class="tip">
+						<p><b>Tip:</b> Alignment can aid readability, but it creates problems for future maintenance. Consider a future change that needs to touch just one line. This change may leave the formerly-pleasing formatting mangled, and that is <b>allowed.</b> More often it prompts the coder (perhaps you) to adjust whitespace on nearby lines as well, possibly triggering a cascading series of reformattings. That one-line change now has a "blast radius." This can at worst result in pointless busywork, but at best it still corrupts version history information, slows down reviewers and exacerbates merge conflicts.</p>
+					</div>
+				</article>
+			</section>
+
+			<section class="main-section" id="Grouping_parentheses_recommended">
+				<header class="header-style">Grouping parentheses recommended</header>
+				<article>
+					<p>Optional grouping parentheses are omitted only when author and reviewer agree that there is no reasonable chance the code will be misinterpreted without them, nor would they have made the code easier to read. It is <i>not</i> reasonable to assume that every reader has the entire Java operator precedence table memorized.</p>
+				</article>
+			</section>
+
+			<section class="main-section" id="Specific_constructs">
+				<header class="header-style">Specific constructs</header>
+				<article>
+					<h3>Enum classes</h3>
+
+					<p>After each comma that follows an enum constant, a line break is optional. Additional blank lines (usually just one) are also allowed. This is one possibility:</p>
+
+					<div class="div-code"><code>
+						<span>
+						private enum Answer {<br>
+						<span class="space">YES {</span><br>
+						<span class="space2">@Override public String toString() {</span><br>
+						<span class="space3">return "yes";</span><br>
+						<span class="space2">}</span><br>
+						<span class="space">},</span><br>
+						<br>
+						<span class="space">NO,</span><br>
+						<span class="space">MAYBE</span><br>
+						}
+						</span>
+					</code></div>
+
+					<p>An enum class with no methods and no documentation on its constants may optionally be formatted as if it were an array initializer</p>
+
+					<div class="div-code"><code>
+						<span>private enum Suit { CLUBS, HEARTS, SPADES, DIAMONDS }</span>
+					</code></div>
+
+					<p>Since enum classes <i>are classes</i>, all other rules for formatting classes apply.</p>
+
+					<h3>Variable declarations</h3>
+					<h4>One variable per declaration</h4>
+
+					<p>Every variable declaration (field or local) declares only one variable: declarations such as <span class="code-text">int a, b;</span> are not used.</p>
+
+					<p><b>Exception:</b> Multiple variable declarations are acceptable in the header of a <span class="code-text">for</span> loop.</p>
+
+					<h4>Declared when needed</h4>
+
+					<p>Local variables are <b>not</b> habitually declared at the start of their containing block or block-like construct. Instead, local variables are declared close to the point they are first used (within reason), to minimize their scope. Local variable declarations typically have initializers, or are initialized immediately after declaration.</p>
+
+					<h3>Arrays</h3>
+					<h4>Array initializers: can be "block-like"</h4>
+
+					<p>Any array initializer may optionally be formatted as if it were a "block-like construct." For example, the following are all valid (not an exhaustive list):</p>
+
+					<h4>No C-style array declarations</h4>
+
+					<p>The square brackets form a part of the <i>type</i>, not the variable: <span class="code-text">String[] args, not String args[]</span>.</p>
+
+					<h3>Switch statements</h3>
+					<p><b>Terminology Note:</b> Inside the braces of a <i>switch block</i> are one or more <i>statement groups</i>. Each statement group consists of one or more <i>switch labels</i> (either <span class="code-text">case FOO: or default:</span>), followed by one or more statements (or, for the last statement group, <i>zero</i> or more statements).</p>
+
+					<h4>Indentation</h4>
+					<p>As with any other block, the contents of a switch block are indented +2.</p>
+
+					<p>After a switch label, there is a line break, and the indentation level is increased +2, exactly as if a block were being opened. The following switch label returns to the previous indentation level, as if a block had been closed.</p>
+
+					<h4>Fall-through: commented</h4>
+					<p>Within a switch block, each statement group either terminates abruptly (with a <span class="code-text">break, continue, return</span> or thrown exception), or is marked with a comment to indicate that execution will or <i>might</i> continue into the next statement group. Any comment that communicates the idea of fall-through is sufficient (typically <span class="code-text">// fall through</span>). This special comment is not required in the last statement group of the switch block. Example:</p>
+
+					<div class="div-code"><code>
+						<span>
+						switch (input) {<br>
+						<span class="space">case 1:</span><br>
+						<span class="space">case 2:</span><br>
+						<span class="space2">prepareOneOrTwo();</span><br>
+						<span class="space2">// fall through</span><br>
+						<span class="space">case 3:</span><br>
+						<span class="space2">handleOneTwoOrThree();</span><br>
+						<span class="space2">break;</span><br>
+						<span class="space">default:</span><br>
+						<span class="space2">handleLargeNumber(input);</span><br>
+						}
+						</span>
+					</code></div>
+
+					<p>Notice that no comment is needed after <span class="code-text">case 1:</span>, only at the end of the statement group.</p>
+
+					<h4>The <span class="code-text" style="font-size: 14px">default</span> case is present</h4>
+
+					<p>Each switch statement includes a <span class="code-text">default</span> statement group, even if it contains no code.</p>
+
+					<p>Exception: A switch statement for an <span class="code-text">enum</span> type may omit the<span class="code-text"> default </span>statement group, <i>if</i> it includes explicit cases covering <i>all</i> possible values of that type. This enables IDEs or other static analysis tools to issue a warning if any cases were missed.</p>
+
+					<h4>Annotations</h4>
+					<p>Annotations applying to a class, method or constructor appear immediately after the documentation block, and each annotation is listed on a line of its own (that is, one annotation per line). These line breaks do not constitute Line-wrapping,so the indentation level is not increased. Example:</p>
+
+					<div class="div-code"><code>
+						<span>
+							@Override<br>
+							@Nullable<br>
+							public String getNameIfPresent() { ... }
+						</span>							
+					</code></div>
+					<p><b>Exception:</b> A <i>single</i> parameterless annotation may instead appear together with the first line of the signature, for example:</p>
+
+					<div class="div-code"><code>
+						<span>
+						@Override public int hashCode() { ... }
+						</span>
+					</code></div>
+
+					<p>Annotations applying to a field also appear immediately after the documentation block, but in this case, <i>multiple</i> annotations (possibly parameterized) may be listed on the same line; for example:</p>
+
+					<div class="div-code"><code>
+						<span>@Partial @Mock DataLoader loader;</span>
+					</code></div>
+
+					<p>There are no specific rules for formatting annotations on parameters, local variables, or types.</p>
+
+					<h3>Comments</h3>
+					<p>This section addresses <i>implementation comments</i>.</p>
+					<p>Any line break may be preceded by arbitrary whitespace followed by an implementation comment. Such a comment renders the line non-blank.</p>
+
+					<h4>Block comment style</h4>
+
+					<p>Block comments are indented at the same level as the surrounding code. They may be in <span class="code-text">/* ... */</span> style or <span class="code-text">// ...</span> style. For multi-line <span class="code-text">/* ... */</span> comments, subsequent lines must start with <span class="code-text">*</span> aligned with the <span class="code-text">*</span> on the previous line.</p>
+
+					<p>Comments are not enclosed in boxes drawn with asterisks or other characters.</p>
+
+					<div class="tip">
+						<p><b>Tip:</b> When writing multi-line comments, use the <span class="code-text">/* ... */</span> style if you want automatic code formatters to re-wrap the lines when necessary (paragraph-style). Most formatters don't re-wrap lines in <span class="code-text">// ...</span> style comment blocks.</p>
+					</div>
+
+					<h3>Modifiers</h3>
+					<p>Class and member modifiers, when present, appear in the order recommended by the Java Language Specification:</p>
+					<p class="code">public protected private abstract default static final transient volatile synchronized native strictfp</p>
+					
+
+					<h4>Numeric Literals</h4>
+
+					<p><span class="code-text">long</span> -valued integer literals use an uppercase <span class="code-text">L</span> suffix, never lowercase (to avoid confusion with the digit <span class="code-text">1</span>). For example, <span class="code-text">3000000000L</span> rather than <span class="code-text">3000000000l</span>.</p>
+				</article>
+			</section>
+
+			<section class="main-section" id="Naming">
+				<header>Naming</header>
+				<article>
+					<section class="main-section" id="Rules_common_to_all_identifiers">
+						<header class="header-style">Rules common to all identifiers</header>
+						<article>
+							<p>Identifiers use only ASCII letters and digits, and, in a small number of cases noted below, underscores. Thus each valid identifier name is matched by the regular expression <span class="code-text">\w+</span> .</p>
+
+							<p>In Google Style, special prefixes or suffixes are not used. For example, these names are not Google Style: <span class="code-text">name_</span>, <span class="code-text">mName</span>, <span class="code-text">s_name</span> and <span class="code-text">kName</span>.</p>
+						</article>
+					</section>
+				</article>
+			</section>
+			
+			<section class="main-section" id="Rules_by_identifier_type">	
+				<header class="header-style">Rules by identifier type</header>
+				<article>
+					<h3>Package names</h3>
+					<p>Package names are all lowercase, with consecutive words simply concatenated together (no underscores). For example, <span class="code-text">com.example.deepspace</span>, not <span class="code-text">com.example.deepSpace</span> or <span class="code-text">com.example.deep_space</span>.</p>
+
+					<h3>Class names</h3>
+					<p>Class names are written in <b><i><u>UpperCamelCase</u></i></b>.</p>
+
+					<p>Class names are typically nouns or noun phrases. For example, <span class="code-text">Character</span> or <span class="code-text">ImmutableList</span>. Interface names may also be nouns or noun phrases (for example, <span class="code-text">List</span>), but may sometimes be adjectives or adjective phrases instead (for example, <span class="code-text">Readable</span>).</p>
+
+					<p>There are no specific rules or even well-established conventions for naming annotation types.</p>
+
+					<p><i>Test</i> classes are named starting with the name of the class they are testing, and ending with <span class="code-text">Test</span>. For example, <span class="code-text">HashTest</span> or <span class="code-text">HashIntegrationTest</span>.</p>
+
+					<h3>Method names</h3>
+
+					<p>Method names are written in <b><i><u>lowerCamelCase</u></i></b>.</p>
+
+					<p>Method names are typically verbs or verb phrases. For example, <span class="code-text">sendMessage</span> or <span class="code-text">stop</span>.</p>
+
+					<p>Underscores may appear in JUnit test method names to separate logical components of the name, with each component written in lowerCamelCase. One typical pattern is <span class="code-text">&lt;methodUnderTest&gt;_&lt;state&gt;</span>, for example pop_emptyStack. There is no One Correct Way to name test methods.</p>
+
+					<h3>Constant names</h3>
+
+					<p>Constant names use <span class="code-text">CONSTANT_CASE</span>: all uppercase letters, with each word separated from the next by a single underscore. But what is a constant, exactly?</p>
+
+					<p>Constants are static final fields whose contents are deeply immutable and whose methods have no detectable side effects. This includes primitives, Strings, immutable types, and immutable collections of immutable types. If any of the instance's observable state can change, it is not a constant. Merely <i>intending</i> to never mutate the object is not enough. Examples:</p>
+
+					<div class="div-code"><code>
+						<span>
+							// Constants<br>
+							static final int NUMBER = 5;<br>
+							static final ImmutableList&lt;String&gt; NAMES = ImmutableList.of("Ed", "Ann");<br>
+							static final ImmutableMap&lt;String, Integer&gt; AGES = ImmutableMap.of("Ed", 35, "Ann", 32);<br>
+							static final Joiner COMMA_JOINER = Joiner.on(','); // because Joiner is immutable<br>
+							static final SomeMutableType[] EMPTY_ARRAY = {};<br>
+							enum SomeEnum { ENUM_CONSTANT }
+							<br><br>
+							// Not constants
+							static String nonFinal = "non-final";<br>
+							final String nonStatic = "non-static";<br>
+							static final Set&lt;String&gt; mutableCollection = new HashSet&lt;String&gt;();<br>
+							static final ImmutableSet&lt;SomeMutableType&gt; mutableElements = ImmutableSet.of(mutable);<br>
+							static final ImmutableMap&lt;String, SomeMutableType&gt; mutableValues =<br>
+							<span class="space">ImmutableMap.of("Ed", mutableInstance, "Ann", mutableInstance2);</span><br>
+							static final Logger logger = Logger.getLogger(MyClass.getName());<br>
+							static final String[] nonEmptyArray = {"these", "can", "change"};
+						</span>
+					</code></div>
+					<p>These names are typically nouns or noun phrases.</p>
+
+					<h3>Non-constant field names</h3>
+
+					<p>Non-constant field names (static or otherwise) are written in <b><i><u>lowerCamelCase</u></i></b>.</p>
+
+					<p>These names are typically nouns or noun phrases. For example, <span class="code-text">computedValues</span> or <span class="code-text">index</span>.</p>
+
+					<h3>Parameter names</h3>
+					<p>Parameter names are written in <b><i><u>lowerCamelCase</u></i></b>.</p>
+
+					<p>One-character parameter names in public methods should be avoided.</p>
+
+					<h3>Local variable names</h3>
+					<p>Local variable names are written in <b><i><u>lowerCamelCase</u></i></b>.</p>
+
+					<p>Even when final and immutable, local variables are not considered to be constants, and should not be styled as constants.</p>
+
+					<h3>Type variable names</h3>
+					<p>Each type variable is named in one of two styles:</p>
+					<ol>
+						<li>A single capital letter, optionally followed by a single numeral (such as <span class="code-text">E, T, X, T2</span>)</li>
+						<li>A name in the form used for classes, followed by the capital letter <span class="code-text">T</span> (examples: <span class="code-text">RequestT, FooBarT</span>).</li>
+					</ol>
+				</article>
+			</section>
+
+			<section class="main-section" id="Camel_case_defined">
+				<header class="header-style">Camel case defined</header>
+				<article>
+
+					<p>Sometimes there is more than one reasonable way to convert an English phrase into camel case, such as when acronyms or unusual constructs like "IPv6" or "iOS" are present. To improve predictability, Google Style specifies the following (nearly) deterministic scheme.</p>
+
+					<p>Beginning with the prose form of the name:</p>
+					<div class="list-align">
+						<ol>
+							<li>Convert the phrase to plain ASCII and remove any apostrophes. For example, "Müller's algorithm" might become "Muellers algorithm".</li>
+							<li>Divide this result into words, splitting on spaces and any remaining punctuation (typically hyphens).
+								<ol class="list-align-order">
+									<li><i>Recommended:</i> if any word already has a conventional camel-case appearance in common usage, split this into its constituent parts (e.g., "AdWords" becomes "ad words"). Note that a word such as "iOS" is not really in camel case <i>per se</i>; it defies <i>any</i> convention, so this recommendation does not apply.</li>
+								</ol>
+							</li>
+							<li>Now lowercase everything (including acronyms), then uppercase only the first character of:
+								<ol class="list-align-order">
+									<li>... each word, to yield upper camel case, or</li>
+									<li>... each word except the first, to yield lower camel case</li>
+								</ol>
+							</li>
+							<li>Finally, join all the words into a single identifier.</li>
+						</ol>
+					</div>
+					<p>Note that the casing of the original words is almost entirely disregarded. Examples:</p>
+					<table>
+						<tr>
+							<th>Prose form</th>
+							<th>Correct</th>
+							<th>Incorrect</th>
+						</tr>
+						<tr>
+							<td>"XML HTTP request"</td>
+							<td class="code-text">XmlHttpRequest</td>
+							<td class="code-text" style="color:red;">XMLHTTPRequest</td>
+						</tr>
+						<tr>
+							<td>"new customer ID"</td>
+							<td class="code-text">newCustomerId</td>
+							<td class="code-text" style="color:red;">newCustomerID</td>
+						</tr>
+						<tr>
+							<td>"inner stopwatch"</td>
+							<td class="code-text">innerStopwatch</td>
+							<td class="code-text" style="color:red;">innerStopWatch</td>
+						</tr>
+						<tr>
+							<td>"YouTube importer"</td>
+							<td class="code-text">YouTubeImporter<br>YoutubeImporter*</td>
+							<td></td>
+						</tr>
+					</table>
+					<p>*Acceptable, but not recommended.</p>
+
+					<div class="note">
+						<p>Note: Some words are ambiguously hyphenated in the English language: for example "nonempty" and "non-empty" are both correct, so the method names <span class="code-text">checkNonempty</span> and <span class="code-text">checkNonEmpty</span> are likewise both correct.</p>
+					</div>
+				</article>
+			</section>
+
+			<section class="main-section" id="Programming_practices">
+				<header>Programming practices</header>
+				<article>
+					<section class="main-section" id="@Override_always_used">
+						<header class="header-style"><span class="code-text" style="font-size:18px">@Override</span>: always used</header>
+						<article>
+
+							<p>A method is marked with the <span class="code-text">@Override</span> annotation whenever it is legal. This includes a class method overriding a superclass method, a class method implementing an interface method, and an interface method respecifying a superinterface method.</p>
+
+							<p><b>Exception:</b><span class="code-text"> @Override</span> may be omitted when the parent method is <span class="code-text">@Deprecated</span>.</p>
+						</article>
+					</section>
+				</article>
+			</section>
+
+			<section class="main-section" id="Caught_exceptions_not_ignored">
+				<header class="header-style">Caught exceptions not ignored</header>
+				<article>
+					<p>Except as noted below, it is very rarely correct to do nothing in response to a caught exception. (Typical responses are to log it, or if it is considered "impossible", rethrow it as an <span class="code-text">AssertionError</span>.)</p>
+
+					<p>When it truly is appropriate to take no action whatsoever in a catch block, the reason this is justified is explained in a comment.</p>
+
+					<div class="div-code"><code>
+						<span>
+							try {<br>
+							<span class="space">int i = Integer.parseInt(response);</span><br>
+							<span class="space">return handleNumericResponse(i);</span><br>
+							} catch (NumberFormatException ok) {<br>
+							<span class="space">// it's not numeric; that's fine, just continue</span><br>
+							}<br>
+							return handleTextResponse(response);
+						</span>	
+					</code></div>
+
+					<p><b>Exception:</b> In tests, a caught exception may be ignored without comment <span class="code-text">if</span> its name is or begins with <span class="code-text">expected</span>. The following is a very common idiom for ensuring that the code under test does throw an exception of the expected type, so a comment is unnecessary here.</p>
+
+					<div class="div-code"><code>
+						<span>
+							try {<br>
+							<span class="space">emptyStack.pop();</span><br>
+							<span class="space">fail();</span><br>
+							} catch (NoSuchElementException expected) {<br>
+							}
+						</span>
+					</code></div>
+				</article>
+			</section>
+
+			<section class="main-section" id="Static_members_qualified_using_class">
+				<header class="header-style">Static members qualified using class</header>
+				<article>
+					<p>When a reference to a static class member must be qualified, it is qualified with that class's name, not with a reference or expression of that class's type.</p>
+
+					<div class="div-code"><code>
+						<span>
+						Foo aFoo = ...;<br>
+						Foo.aStaticMethod(); // good<br>
+						aFoo.aStaticMethod(); // bad<br>
+						somethingThatYieldsAFoo().aStaticMethod(); // very bad
+						</span>
+					</code></div>
+				</article>
+			</section>
+
+			<section class="main-section" id="Finalizers_not_used">
+				<header class="header-style">Finalizers not used</header>
+				<article>
+					<p>It is <b>extremely rare</b> to override <span class="code-text">Object.finalize</span>.</p>
+
+					<div class="tip">
+						<p><b>Tip:</b> Don't do it. If you absolutely must, first read and understand <b><i><u>Effective Java</u></i></b>, "Avoid Finalizers," very carefully, and <i>then</i> don't do it.</p>
+					</div>
+				</article>
+			</section>
+
+			<section class="main-section" id="Javadoc">
+				<header>Javadoc</header>
+				<article>
+					<section class="main-section" id="Formatting_javadoc">
+						<header class="header-style">Formatting javadoc</header>
+						<article>
+							<h3>General form</h3>
+							<p>The <span class="code-text">basic</span> formatting of Javadoc blocks is as seen in this example:</p>
+
+							<div class="div-code"><code>
+								<span>
+								/**<br>
+								* Multiple lines of Javadoc text are written here,<br>
+								* wrapped normally...<br>
+								*/<br>
+								public int method(String p1) { ... }
+								</span>
+							</code></div>
+							<p>... or in this single-line example:</p>
+							<div class="div-code"><code>
+								<span>/** An especially short bit of Javadoc. */</span>
+							</code></div>
+							<p>The basic form is always acceptable. The single-line form may be substituted when the entirety of the Javadoc block (including comment markers) can fit on a single line. Note that this only applies when there are no block tags such as <span class="code-text">@return</span>.</p>
+
+							<h3>Paragraphs</h3>
+							<p>One blank line—that is, a line containing only the aligned leading asterisk (<span class="code-text">*</span>)—appears between paragraphs, and before the group of block tags if present. Each paragraph but the first has <span class="code-text">&lt;p&gt;</span> immediately before the first word, with no space after.</p>
+
+							<h3>Block tags</h3>
+
+							<p>Any of the standard "block tags" that are used appear in the order <span class="code-text">@param, @return, @throws, @deprecated</span>, and these four types never appear with an empty description. When a block tag doesn't fit on a single line, continuation lines are indented four (or more) spaces from the position of the <span class="code-text">@</span>.</p>
+						</article>
+					</section>
+				</article>
+			</section>
+
+			<section class="main-section" id="The_summary_fragment">
+				<header class="header-style">The summary fragment</header>
+				<article>
+					<p>Each Javadoc block begins with a brief <b>summary fragment</b>. This fragment is very important: it is the only part of the text that appears in certain contexts such as class and method indexes.</p>
+
+					<p>This is a fragment—a noun phrase or verb phrase, not a complete sentence. It does <b>not</b> begin with <span class="code-text">A {@code Foo} is a...</span>, or <span class="code-text">This method returns...</span>, nor does it form a complete imperative sentence like <span class="code-text">Save the record.</span>. However, the fragment is capitalized and punctuated as if it were a complete sentence.</p>
+
+					<div class="tip">
+						<p><b>Tip:</b> A common mistake is to write simple Javadoc in the form <span class="code-text">/** @return the customer ID */</span>. This is incorrect, and should be changed to<br> <span class="code-text">/** Returns the customer ID. */</span>.</p>
+					</div>
+				</article>
+			</section>
+
+			<section class="main-section"  id="Where_javadoc_is_used">
+				<header class="header-style">Where javadoc is used</header>
+				<article>
+					<p>At the <i>minimum</i>, Javadoc is present for every <span class="code-text">public</span> class, and every <span class="code-text">public</span> or <span class="code-text">protected</span> member of such a class, with a few exceptions noted below.</p>
+
+					<p>Additional Javadoc content may also be present</p>
+
+					<h3>Exception: self-explanatory methods</h3>
+					<p>Javadoc is optional for "simple, obvious" methods like <span class="code-text">getFoo</span>, in cases where there really and truly is nothing else worthwhile to say but "Returns the foo".</p>
+
+					<div class="note">
+						<p><b>Important:</b> it is not appropriate to cite this exception to justify omitting relevant information that a typical reader might need to know. For example, for a method named <span class="code-text">getCanonicalName</span>, don't omit its documentation (with the rationale that it would say only <span class="code-text">/** Returns the canonical name. */</span>) if a typical reader may have no idea what the term "canonical name" means!</p>			
+					</div>
+
+					<h3>Exception: overrides</h3>
+					<p>Javadoc is not always present on a method that overrides a supertype method.</p>
+
+					<h3>Non-required Javadoc</h3>
+					<p>Other classes and members have Javadoc as <i>needed or desired</i>.</p>
+
+					<p>Whenever an implementation comment would be used to define the overall purpose or behavior of a class or member, that comment is written as Javadoc instead (using <span class="code-text">/**</span>).</p>
+				</article>
+			</section>
+
+			<section class="main-section" id="Reference">
+				<header class="footer">Reference:</header>
+				<article>
+					<p class="reference">All the documentation in this page is taken from <a href="https://google.github.io/styleguide/javaguide.html">GJS</a></p>
+				</article>
+			</section>
+			
+		</main>
+	</body>
+</html>

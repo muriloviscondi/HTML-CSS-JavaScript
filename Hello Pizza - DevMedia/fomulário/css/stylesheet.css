@@ -1,0 +1,299 @@
+* {
+    font-family: "Helvetica Roman", sans-serif;
+}
+
+body {
+    margin: 0;
+    background-color: #ccc;
+    background-image: url('../img/background-pizza-index.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow-x: hidden;
+}
+
+#logo {
+    height: 78px;
+    padding: 30px 70px 30px 70px;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#logo h1 {
+    float: left;
+    margin: 0;
+}
+
+#logo nav {
+    float: right;
+    position: relative;
+    top: calc(50% - 25px);
+}
+
+#logo nav ul li {
+    display: inline-block;
+}
+
+#logo nav ul li a {
+    padding-right: 20px;
+    color: #fff;
+    font-size: 11pt;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+header h1 {
+    text-align: center;
+    color: #fff;
+    font-size: 28pt;
+    text-shadow: 2px 2px 8px #000;
+}
+
+fieldset {
+    width: 60%;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: rgba(153, 153, 153, 0.5);
+    box-shadow: 5px 10px 8px #000;
+}
+
+fieldset legend {
+    margin-left: 30px;
+    padding-right: 5px;
+    padding-left: 5px;
+    color: #fff;
+    font-size: 14pt;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.container-input label, .container-radio label, .container-checkbox label {
+    width: 10%;
+    font-size: 11pt;
+    font-weight: bold;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.container-input, .container-radio {
+    margin-left: 50px;
+    padding: 5px;
+    margin-bottom: 10px;
+    
+}
+
+.container-input input {
+    color: #333;
+    padding-left: 2%;
+    font-size: 11pt;
+    height: 30px;
+}
+
+input[type="radio"] {
+    margin-left: 5%;
+}
+
+#file {
+    margin-left: 20px;
+    color: #000;
+    font-weight: bold;
+}
+
+span {
+    margin-left: 5px;
+    font-weight: bold;
+}
+
+.container-center {
+    width: 100%;
+    display: inline-block;
+}
+
+#container-number {
+    width: 50%;
+    float: left;
+}
+
+#container-cep {
+    width: 40%;
+    margin-left: 0;
+    float: right;
+}
+
+input[type="text"], input[type="email"], input[type="password"] {
+    width: 80%;
+    margin-left: 30px;
+    border: 1px solid #000;
+    border-radius: 30px;
+}
+
+input[type="number"], #cep[type="text"] {
+    width: 60%;
+    margin-left: 62px;
+    border: 1px solid #000;
+    border-radius: 30px;
+}
+
+input[type="date"] {
+    width: 20%;
+    margin-left: 30px;
+    border: 1px solid #000;
+    border-radius: 30px;
+    text-align: center;
+}
+
+.text-area {
+    text-align: center;
+}
+
+#text-area {
+    width: 90%;
+    height: 100px;
+    border: 1px solid #000;
+    border-radius: 10px;
+    resize: none;
+}
+
+.container-checkbox{
+    margin: 5px;
+    display: inline-block;
+}
+
+.container-checkbox input {
+    margin-left: 40px;
+    vertical-align: middle;
+}
+
+.container-checkbox label {
+    width: auto;
+    font-size: 8pt;
+}
+
+.input-button {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#submit {
+    width: 200px;
+    height: 60px;
+    color: #fff;
+    font-size: 14pt;
+    font-weight: bold;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    background-color: #3C52A3;
+    cursor: pointer;
+}
+
+#submit:hover {
+    background-color: rgb(86, 122, 250);
+}
+
+footer {
+    text-align: center;
+    margin-top: 70px;
+}
+
+footer img {
+    width: 220px;
+}
+
+footer p {
+    margin-top: 0;
+    font-size: 7pt;
+    font-weight: bold;
+    color: #fff;
+    position: relative;
+    left: 17px;
+    bottom: 5px;
+}
+
+@media only screen and (max-width: 1200px) {
+    fieldset {
+        width: 70%;
+    }
+}
+
+@media only screen and (max-width: 1033px) {
+    fieldset {
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 908px) {
+    fieldset {
+        width: 92%;
+    }
+
+    #logo {
+        height: auto;
+        text-align: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    #logo h1 {
+        width: 100%;
+        float: none;
+        
+    }
+    
+    #logo nav {
+        width: 100%;
+        float: none;
+    }
+    
+    .container-input, .container-radio, .container-checkbox {
+        margin: 0 auto;
+    }
+
+    .container-input label, .container-radio label, .container-checkbox label {
+        width: 100%;
+        margin: 0 auto;
+        padding-bottom: 10px;
+        display: block;
+        text-align: center;
+       
+    }
+
+    #container-number, #container-cep {
+        width: 98%;
+        margin: 0 auto;
+        text-align: center;
+        float: none;
+    }
+    
+    input[type="number"], #cep[type="text"] {
+        width: 80%;
+        margin: 0 auto;
+        margin-left: -15px;
+    }
+
+    .container-radio {
+        text-align: center;
+    }
+    
+    span {
+        margin: 0 auto;
+        color: #fff;
+        text-decoration: underline;
+        font-style: italic;
+    }
+
+    input[type="date"] {
+        width: 80%;
+    }
+
+    .container-checkbox {
+        width: 100%;
+    }
+
+    .container-checkbox label {
+        position: relative;
+        left: -60px;
+        bottom: 15px;
+    
+}

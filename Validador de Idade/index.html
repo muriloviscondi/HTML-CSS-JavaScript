@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Verificador de Idade</title>
-    <link rel="stylesheet" href="css/stylesheet.css">
+    <link href="css/stylesheet.css" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -22,11 +22,11 @@
                 
                 <div id="sexo">
                     <label>Sexo:</label>
-                    <input type="radio" name="gender" id="masculino"><label>Masculino</label>
+                    <input type="radio" name="gender" id="masculino" checked><label>Masculino</label>
                     <input type="radio" name="gender" id="femino"><label>Feminino</label>
                 </div>
 
-                <input type="submit" id="submit" name="submit" value="Enviar" onclick="mudarFoto()">
+                <input type="button" id="button" name="button" value="Enviar" onclick="mudarFoto()">
             </form>
 
             <div id="resposta"></div>

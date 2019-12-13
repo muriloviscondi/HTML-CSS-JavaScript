@@ -5,7 +5,6 @@ function mudarFoto() {
     var anoNascimento = document.querySelector('#anoNascimento');
     var tipoSexo = document.getElementsByName('gender');
     var resposta = document.querySelector('#resposta');
-    
     var img = document.querySelector('#image');
     
     var nascimento = Number(anoNascimento.value);
@@ -38,21 +37,33 @@ function mudarFoto() {
         resposta.innerHTML = `Nascido no ano ${nascimento} tem ${idade} anos`;
         img.src = 'https://github.com/muriloviscondi/HTML-CSS-JavaScript/blob/master/Validador%20de%20Idade/img/03%20-%20teenager-girl.png?raw=true';
     
-    } else if (idade < 50 && tipoSexo[0].checked) {
+    } else if (idade < 30 && tipoSexo[0].checked) {
         resposta.innerHTML = `Nascido no ano ${nascimento} tem ${idade} anos`;
         img.src = 'https://github.com/muriloviscondi/HTML-CSS-JavaScript/blob/master/Validador%20de%20Idade/img/04%20-%20adult-man.png?raw=true';
-        
-    } else if (idade > 50 && tipoSexo[1].checked) {
+    
+    } else if (idade < 30 && tipoSexo[1].checked) {
         resposta.innerHTML = `Nascido no ano ${nascimento} tem ${idade} anos`;
-        img.src = 'https://github.com/muriloviscondi/HTML-CSS-JavaScript/blob/master/Validador%20de%20Idade/img/05%20-%20old-man.png?raw=true';
+        img.src = 'https://github.com/muriloviscondi/HTML-CSS-JavaScript/blob/master/Validador%20de%20Idade/img/04%20-%20adult-woman.png?raw=true';
+
+    } else if (idade <= 50 && tipoSexo[0].checked) {
+        resposta.innerHTML = `Nascido no ano ${nascimento} tem ${idade} anos`;
+        img.src = 'https://github.com/muriloviscondi/HTML-CSS-JavaScript/blob/master/Validador%20de%20Idade/img/05%20-%20almostold-adult-man.png?raw=true';
+    
+    } else if (idade <= 50 && tipoSexo[1].checked) {
+        resposta.innerHTML = `Nascido no ano ${nascimento} tem ${idade} anos`;
+        img.src = 'https://github.com/muriloviscondi/HTML-CSS-JavaScript/blob/master/Validador%20de%20Idade/img/05%20-%20almostold-adult-woman.png?raw=true';
+            
+    } else if (idade > 50 && tipoSexo[0].checked) {
+        resposta.innerHTML = `Nascido no ano ${nascimento} tem ${idade} anos`;
+        img.src = 'https://github.com/muriloviscondi/HTML-CSS-JavaScript/blob/master/Validador%20de%20Idade/img/06%20-%20old-man.png?raw=true';
     
     } else if (idade > 50 && tipoSexo[1].checked) {
         resposta.innerHTML = `Nascido no ano ${nascimento} tem ${idade} anos`;
-        img.src = 'https://github.com/muriloviscondi/HTML-CSS-JavaScript/blob/master/Validador%20de%20Idade/img/05%20-%20old-woman.png?raw=true';
+        img.src = 'https://github.com/muriloviscondi/HTML-CSS-JavaScript/blob/master/Validador%20de%20Idade/img/06%20-%20old-woman.png?raw=true';
     
     } else {
-        resposta.innerHTML = `Nascido no ano ${nascimento} tem ${idade} anos`;
-        img.src = 'https://github.com/muriloviscondi/HTML-CSS-JavaScript/blob/master/Validador%20de%20Idade/img/05%20-%20old-woman.png?raw=true';
+        resposta.innerHTML = `Idade Indefinida`;
+        img.src = 'https://github.com/muriloviscondi/HTML-CSS-JavaScript/blob/master/Validador%20de%20Idade/img/Artboard%201.png?raw=true';
     }
     
 }

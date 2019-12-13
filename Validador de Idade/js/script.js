@@ -5,7 +5,6 @@ function mudarFoto() {
     var anoNascimento = document.querySelector('#anoNascimento');
     var tipoSexo = document.getElementsByName('gender');
     var resposta = document.querySelector('#resposta');
-    
     var img = document.querySelector('#image');
     
     var nascimento = Number(anoNascimento.value);

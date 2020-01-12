@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css?family=Baloo+Bhai|Merriweather|Open+Sans|Rubik&display=swap');
+
+body {
+    background-color: rgb(255, 255, 233);
+}
+
+header h1 {
+    font-family: 'Merriweather', serif;
+    text-align: center;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+section, .resposta {
+    width: 450px;
+    height: 220px;
+    margin: 10px 20px;
+    padding: 10px;
+    background-color: rgb(255, 235, 205);
+    border: 1px solid rgb(255, 173, 49);
+    border-radius: 20px;
+    box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.3);
+}
+
+.sub-titulo h2{
+    margin: 5px auto 10px auto;
+    text-align: center;
+    font-family: 'Rubik', sans-serif;
+    font-size: 20px;
+}
+
+li {
+    font-family: 'Open Sans', sans-serif;
+}
+
+form label {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.input-number {
+    margin: 10px auto;
+    display: block;
+}
+
+.input-number label {
+    display: inline-block;
+    width: 225px;
+}
+
+.input-buttons, .form-respostaErro {
+    text-align: center;
+}
+
+.input-buttons input {
+    margin: 10px;
+}
+
+input[type="submit"],
+input[type="reset"] {
+    width: 100px;
+    height: 35px;
+    padding-top: 3px;
+    color: #fff;
+    font-family: 'Baloo Bhai', cursive;
+    font-size: 16px;
+    background-color: rgb(0, 71, 151);
+    border: none;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover,
+input[type="reset"]:hover {
+    background-color: rgb(0, 48, 104);
+}
+
+.resposta {
+    margin: 0 auto;
+    height: 120px;
+}
+
+.resposta ul {
+    list-style: none;
+    margin-left: -50px;
+    text-align: center;
+}
+
+@media only screen and (max-width: 1054px) {
+    section, .resposta {
+        height: auto;
+    }
+
+    
+}
+
+@media only screen and (max-width: 502px) {
+    form {
+        text-align: center;
+    }
+
+    .resposta {
+        width: auto;
+    }
+
+    input[type="number"] {
+        margin-top: 5px;
+    }
+}

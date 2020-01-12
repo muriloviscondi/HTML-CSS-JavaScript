@@ -29,7 +29,7 @@
         $mensagem .= "</div>";
 
     } else {
-        $mensagem = "<form class='form-respostaErro' action='calculo-combustivel.php' method='POST'>";
+        $mensagem = "<form class='form-respostaErro' action='index.php' method='POST'>";
         $mensagem .= "<div class='sub-titulo'>";
         $mensagem .= "<h2>Nenhum valor inserido</h2>";
         $mensagem .= "</div>";
